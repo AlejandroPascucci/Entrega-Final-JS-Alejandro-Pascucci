@@ -1,0 +1,359 @@
+@font-face {
+    font-family: stencil;
+    src: url(fonts/Stenciln.ttf);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    text-decoration: none;
+    height: 120px;
+    width: 100%;
+    font-size: 40px;
+
+}
+
+.logo {
+    text-align: center;
+    line-height: 8px;
+    letter-spacing: 15px;
+    text-decoration: none;
+
+}
+
+h1 {
+    padding: none;
+    margin-bottom: none;
+    margin-top: 60px;
+    letter-spacing: 25px;
+    font-family: stencil;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 80px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 70px;
+
+}
+
+
+hr {
+    border: solid 1px;
+    color: rgb(155, 7, 7);
+
+}
+
+
+
+ul {
+    list-style: none;
+    text-align: center;
+    font-size: 16px;
+    word-spacing: 19px;
+    padding: none;
+
+}
+
+ul li {
+    display: inline-block;
+
+
+
+}
+
+ul a {
+    color: rgb(20, 20, 20);
+    text-decoration: none;
+    margin-top: 50px;
+}
+
+ul a:hover {
+    color: rgb(155, 7, 7);
+    text-decoration: none;
+}
+
+span {
+
+    color: rgb(155, 7, 7);
+    text-decoration: none;
+    font-size: 25px;
+    text-align: center;
+
+}
+
+nav {
+    margin-top: none;
+
+}
+
+
+
+h2 {
+    font-family: stencil;
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    font-size: 40px;
+}
+
+
+
+.cont1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+
+}
+
+
+
+.item {
+    height: 250px;
+    width: 360px;
+    background-color: gray;
+    border: 2px solid white;
+
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(87, 87, 87, 0.055);
+    background-size: cover;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.780), rgba(63, 63, 63, 0.5)), url(../images/fondo\ main0.jpg);
+}
+
+img {
+    margin-bottom: 10px;
+}
+
+
+
+footer {
+
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.856);
+    line-height: 30px;
+}
+
+p {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.redes a {
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    padding: 20px;
+    letter-spacing: 5px;
+}
+
+.redes a:hover {
+    color: rgb(155, 7, 7);
+}
+
+
+
+.btn {
+    background-color: rgb(47, 65, 13);
+
+}
+
+.card-title {
+    background-color: rgb(39, 53, 12);
+    color: antiquewhite;
+    text-align: center;
+    font-size: 16px;
+}
+
+.card-text {
+    color: rgb(15, 20, 4);
+    text-align: center;
+    font-size: 16px;
+}
+
+.text-muted {
+    font-size: 25px;
+    text-align: center;
+
+}
+
+.wrap {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, rgba(175, 175, 175, 0.5), rgba(0, 0, 0, 0.911)), url(../images/1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.wrap-texto {
+
+    color: #fff;
+    text-align: center;
+    width: 60%;
+    height: 0%;
+    margin-bottom: 350px;
+    font-size: 16px;
+    position: static;
+    text-shadow: #000000 1px 0 3px;
+}
+
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 100vh;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+// aca nuevo 22-5
+
+
+#effect-hover .img {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    margin: 20px auto;
+    position: relative;
+}
+
+
+#effect-hover #efecto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    background-color: rgba(150, 150, 150, 0.8);
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+#effect-hover .img:hover #efecto {
+    opacity: 1;
+}
+
+#effect-hover h3 {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 30px;
+    font-family: stencil;
+    transition-duration: 2s;
+    margin: 0px;
+    text-decoration: none;
+}
+
+#effect-hover .img:hover h3 {
+    top: 50px;
+}
+
+#effect-hover p {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 16px;
+    transition-duration: 2s;
+    margin: 0px;
+}
+
+#effect-hover .img:hover p {
+    bottom: 50px;
+}
+
+blockquote {
+    text-align: center;
+}
+
+body {
+
+    background: linear-gradient(to bottom, rgba(175, 175, 175, 0.5), rgb(175, 175, 175, .5)), url(../images/1.1.jpg);
+    background-repeat: no-repeat !important;
+}
+
+
+iframe {
+    margin-top: 15px;
+}
+
+section {
+
+    padding: 20px;
+}
+
+.card {
+    padding: 20px;
+    margin-bottom: 18px;
+    background-color: #ebebebaf;
+}
+
+mark {
+    font-weight: bold;
+    color: rgb(36, 36, 36);
+    background-color: transparent;
+}
+
+h3 :hover {
+
+    font-style: rgb(155, 7, 7);
+}
+/*# sourceMappingURL=estilos.css.map */
+
+
+
+button {
+
+    margin-bottom: 20px;
+    // padding: 100px;
+}
+
+#carrito1 {
+    /* Estilos específicos para el carrito */
+    background-color: #ebebebaf;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 100px;
+    /* Agrega más estilos según tus necesidades */
+        h2.img {
+                /* Estilos para el h2 dentro de #carrito */
+                size: 10px;
+            }
+        button {
+            /* Estilos para los botones dentro de #carrito */
+            margin: 15px;
+        }
+
+}
+
+
+#carrito button {
+    /* Estilos para los botones dentro del aside con ID "carrito" */
+    margin: 5px;
+    
+    
+}
