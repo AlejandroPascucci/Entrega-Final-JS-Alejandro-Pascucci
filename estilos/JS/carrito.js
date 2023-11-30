@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             buttonsStyling: false
         });
+    
         swalWithBootstrapButtons.fire({
             title: "¿Estás seguro de la Compra?",
             text: "",
@@ -178,13 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const productosAgrupados = agruparProductos(carrito);
-
+    
                 const listaProductos = productosAgrupados.map(item => {
                     return `${item.nombre} - ${item.cantidad} unidades - ${item.total}${divisa}`;
                 });
-
+    
                 const precioTotal = calcularTotal();
-
+    
                 swalWithBootstrapButtons.fire({
                     title: "Resumen de la compra",
                     html: `
@@ -196,6 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     confirmButtonText: "Confirmar compra"
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        swalWithBootstrapButtons.fire({
+                            title: "Gracias por tu compra!",
+                            text: "Tus productos se enviarán a la brevedad.",
+                            icon: "success"
+                        });
                         vaciarCarrito();
                     }
                 });
