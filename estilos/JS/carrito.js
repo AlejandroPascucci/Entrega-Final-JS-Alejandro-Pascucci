@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const enlaceCarrito = document.querySelector('#enlace-carrito');
     const carritoElemento = document.querySelector('#carrito1');
 
-    // Modificación para utilizar fetch
     let productos;
 
     fetch("../estilos/JS/productos.json")
@@ -18,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
             productos = data;
             renderizarProductos(productos);
 
-            // Agregar el evento click al enlace del carrito
+
             enlaceCarrito.addEventListener('click', () => {
-                // Desplazarse al elemento del carrito
+
                 carritoElemento.scrollIntoView({ behavior: 'smooth' });
             });
         })
@@ -54,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const productoBoton = document.createElement('button');
             productoBoton.classList.add('btn', 'btn-primary');
             productoBoton.textContent = 'Añadir al carrito';
-            productoBoton.setAttribute('marcador', info.id); // Añadir un atributo 'marcador'
+            productoBoton.setAttribute('marcador', info.id);
             productoBoton.addEventListener('click', añadirAlCarrito.bind(null, info));
 
             productoCardBody.appendChild(productoImagen);
@@ -167,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             buttonsStyling: false
         });
-    
+
         swalWithBootstrapButtons.fire({
             title: "¿Estás seguro de la Compra?",
             text: "",
@@ -179,13 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const productosAgrupados = agruparProductos(carrito);
-    
+
                 const listaProductos = productosAgrupados.map(item => {
                     return `${item.nombre} - ${item.cantidad} unidades - ${item.total}${divisa}`;
                 });
-    
+
                 const precioTotal = calcularTotal();
-    
+
                 swalWithBootstrapButtons.fire({
                     title: "Resumen de la compra",
                     html: `
@@ -215,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
     function agruparProductos(carrito) {
         return carrito.reduce((agrupados, itemId) => {
             const item = productos.find(producto => producto.id === parseInt(itemId));
@@ -243,11 +243,11 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarProductos();
     renderizarCarrito();
 });
-    
-    document.addEventListener('DOMContentLoaded', () => {
-    // ... (tu código existente)
 
-    // Obtener el enlace del carrito
+document.addEventListener('DOMContentLoaded', () => {
+
+
+
     const enlaceCarrito = document.querySelector('#enlace-carrito');
 
     // Obtener la referencia al elemento del carrito
