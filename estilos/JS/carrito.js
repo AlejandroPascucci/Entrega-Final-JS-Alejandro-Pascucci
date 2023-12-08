@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function vaciarCarrito() {
         carrito.forEach(itemId => {
             const producto = productos.find(producto => producto.id === parseInt(itemId));
-            producto.stock += 1; // Devolver el stock al vaciar el carrito
+            producto.stock += 1; 
         });
 
         carrito = [];
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (result.isConfirmed) {
                 const productosAgrupados = agruparProductos(carrito);
     
-                // Actualizar el stock y guardar el carrito
+                // Actualiza el stock y guardar el carrito
                 productosAgrupados.forEach(item => {
                     const producto = productos.find(producto => producto.id === parseInt(item.id));
                     producto.stock -= item.cantidad;
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
     DOMbotonComprar.addEventListener('click', comprarCarrito);
 
-    // Renderizar productos y carrito al cargar la página
+
     renderizarProductos();
     renderizarCarrito();
 });
@@ -271,12 +271,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const enlaceCarrito = document.querySelector('#enlace-carrito');
 
-    // Obtener la referencia al elemento del carrito
+
     const carritoElemento = document.querySelector('#carrito1');
 
-    // Agregar el evento click al enlace del carrito
+
     enlaceCarrito.addEventListener('click', () => {
-        // Desplazarse al elemento del carrito
+
         carritoElemento.scrollIntoView({ behavior: 'smooth' });
     });
 });
