@@ -15,15 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             productos = data;
-            renderizarProductos(productos);
 
+
+            ajustarStockSegunCarrito();
+
+            renderizarProductos(productos);
+            renderizarCarrito(); 
 
             enlaceCarrito.addEventListener('click', () => {
-
                 carritoElemento.scrollIntoView({ behavior: 'smooth' });
             });
         })
         .catch(error => console.error('Error al obtener los productos:', error));
+
+    function ajustarStockSegunCarrito() {
+        carrito.forEach(itemId => {
+            const producto = productos.find(producto => producto.id === parseInt(itemId));
+            if (producto) {
+                producto.stock -= 1;
+            }
+        });
+    }
 
     function renderizarProductos(productos) {
         productos.forEach((info) => {
@@ -166,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             buttonsStyling: false
         });
-
+    
         swalWithBootstrapButtons.fire({
             title: "¿Estás seguro de la Compra?",
             text: "",
@@ -178,13 +190,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const productosAgrupados = agruparProductos(carrito);
-
+    
+                // Actualizar el stock y guardar el carrito
+                productosAgrupados.forEach(item => {
+                    const producto = productos.find(producto => producto.id === parseInt(item.id));
+                    producto.stock -= item.cantidad;
+                });
+    
+                guardarCarrito();
+    
                 const listaProductos = productosAgrupados.map(item => {
                     return `${item.nombre} - ${item.cantidad} unidades - ${item.total}${divisa}`;
                 });
-
+    
                 const precioTotal = calcularTotal();
-
+    
                 swalWithBootstrapButtons.fire({
                     title: "Resumen de la compra",
                     html: `
@@ -202,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             icon: "success"
                         });
                         vaciarCarrito();
+                        renderizarProductos();
                     }
                 });
             } else if (result.dismiss === Swal.DismissReason.cancel) {
@@ -236,10 +257,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return agrupados;
         }, []);
     }
-
     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
     DOMbotonComprar.addEventListener('click', comprarCarrito);
 
+    // Renderizar productos y carrito al cargar la página
     renderizarProductos();
     renderizarCarrito();
 });
